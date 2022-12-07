@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Respaldo/DATA_PROGRAM/Proyectos/Android_projects/Kotlin/HeathyAdvice/app/src/main/res/layout/activity_maps.xml" value="0.2" />
+        <entry key="..\:/Respaldo/DATA_PROGRAM/Proyectos/Android_projects/Kotlin/HeathyAdvice/app/src/main/res/layout/activity_search.xml" value="0.20854700854700856" />
+        <entry key="..\:/Respaldo/DATA_PROGRAM/Proyectos/Android_projects/Kotlin/HeathyAdvice/app/src/main/res/layout/fragment_weather.xml" value="0.264" />
+        <entry key="..\:/Respaldo/DATA_PROGRAM/Proyectos/Android_projects/Kotlin/HeathyAdvice/app/src/main/res/layout/fragment_weather_data.xml" value="0.1" />
+        <entry key="..\:/Respaldo/DATA_PROGRAM/Proyectos/Android_projects/Kotlin/HeathyAdvice_beta/app/src/main/res/layout/activity_maps.xml" value="0.22592592592592592" />
+        <entry key="..\:/Respaldo/DATA_PROGRAM/Proyectos/Android_projects/Kotlin/HeathyAdvice_v2/app/src/main/res/layout/activity_maps.xml" value="0.22592592592592592" />
+        <entry key="..\:/Respaldo/DATA_PROGRAM/Proyectos/Android_projects/Kotlin/HeathyAdvice_v2/app/src/main/res/layout/activity_search.xml" value="0.264" />
+        <entry key="..\:/Respaldo/DATA_PROGRAM/Proyectos/Android_projects/Kotlin/HeathyAdvice_v2/app/src/main/res/layout/fragment_weather.xml" value="0.20854700854700856" />
+        <entry key="..\:/Respaldo/DATA_PROGRAM/Proyectos/Android_projects/Kotlin/HeathyAdvice_v2/app/src/main/res/layout/fragment_weather_data.xml" value="0.20854700854700856" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
