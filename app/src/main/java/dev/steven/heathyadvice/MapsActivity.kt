@@ -71,10 +71,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             )
             return
         }
+        //Activación de servicios de Google Maps
         mMap.isMyLocationEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isCompassEnabled = true
-
+        
+        //Cliente que revisa la última ubicación registrada
         fusedLocationProviderClient.lastLocation.addOnSuccessListener { location ->
             if (location!= null){
                 val ubicacion = LatLng(location.latitude, location.longitude)
@@ -82,6 +84,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion, 15f))
                 lat = location.latitude
                 lon = location.longitude
+                //Ejecutar clase "weatherTask()"
                 weatherTask().execute()
 
             }
@@ -92,35 +95,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
     }
-    // Funcion para mandar los datos al fragment1
-    /*fun enviarDatosFr1(city: String, icon: String, state: String, message:String){
-        bundle.putString("city", city)
-        bundle.putString("icon", icon)
-        bundle.putString("state", state)
-        bundle.putString("message", message)
-        val transaccion = supportFragmentManager.beginTransaction()
-        val fragment = Weather()
-        fragment.arguments = bundle
-        transaccion.replace(R.id.contenedor, fragment)
-        transaccion.addToBackStack(null)
-        transaccion.commit()
-
-
-
-    }
-    // Función para mandar los datos al fragment 2
-    fun enviarDatosFr2(temp: String, wind: Double, humidity: String, visibility: Int){
-        bundle.putInt("visibility", visibility)
-        bundle.putDouble("wind", wind)
-        bundle.putString("humidity", humidity)
-        bundle.putString("temp", temp)
-        val transaccion = supportFragmentManager.beginTransaction()
-        val fragment = weatherData()
-        fragment.arguments = bundle
-        transaccion.replace(R.id.contenedor2, fragment)
-        transaccion.addToBackStack(null)
-        transaccion.commit()
-    }*/
+    
     //Clase que se encarga de hacer la llamada al API y distribuir los datos
     inner class weatherTask(): AsyncTask<String, Void, String>()
     {
@@ -139,8 +114,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         override fun onPostExecute(result: String?) {
-            super.onPostExecute(result)
+            super.onPostExecute(result) // recoje el return de la función doInBackground
             try{
+                //Acceso a objetos del JSON resultante de la consulta
                 val jsonObj = JSONObject(result)
                 val main = jsonObj.getJSONObject("main")
                 val wind = jsonObj.getJSONObject("wind")
@@ -160,8 +136,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
 
-                //enviarDatosFr1(city,weather_icon,description,message)
-                //enviarDatosFr2(temp,wind_speed,humedad,visibility)
+               
 
 
 
@@ -176,6 +151,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
 
         }
+        //Función para generar mensaje de recomendación
         fun recommendOptions(vis: Int, weather:String): String {
             var recomendacion1: String = ""
             var recomendacion2: String = ""
@@ -198,7 +174,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             return message
 
         }
+        //Función bloque inferior de Maps Activity
         fun weather(icon:String, message: String, city:String, state:String){
+            //Cambio de imagen, dependiendo del clima 
             when (icon){
                 "01d" -> findViewById<ImageView>(R.id.imgClima).setImageResource(R.drawable.sun)
                 "01n" -> findViewById<ImageView>(R.id.imgClima).setImageResource(R.drawable.moon)
@@ -226,6 +204,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 startActivity(Intent(this@MapsActivity, SearchActivity::class.java))
             }
         }
+        //función bloque superior
         fun weatherData(wind:Double, visibility: Int, temp: Double, humidity: Int ){
             var wind = wind
             if (wind >= 1000){
